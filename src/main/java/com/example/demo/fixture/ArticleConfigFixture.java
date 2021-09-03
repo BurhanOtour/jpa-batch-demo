@@ -1,6 +1,11 @@
 package com.example.demo.fixture;
 
 import com.example.demo.model.ArticleConfig;
+import com.example.demo.model.ArticleSimple;
+
+import java.util.List;
+
+import static java.util.UUID.randomUUID;
 
 public class ArticleConfigFixture {
     public static final String CONFIG_SKU = "configSku";
@@ -17,6 +22,17 @@ public class ArticleConfigFixture {
 
     public static ArticleConfig createArticleConfigWithConfigSKU(String configSku) {
         return createArticleConfig(configSku);
+    }
+
+    public static List<ArticleSimple> createSimples(ArticleConfig config) {
+        return List.of(
+                ArticleSimple.builder().simpleSKU(randomUUID().toString()).ean(randomUUID().toString()).size(randomUUID().toString()).articleConfig(config).build(),
+                ArticleSimple.builder().simpleSKU(randomUUID().toString()).ean(randomUUID().toString()).size(randomUUID().toString()).articleConfig(config).build(),
+                ArticleSimple.builder().simpleSKU(randomUUID().toString()).ean(randomUUID().toString()).size(randomUUID().toString()).articleConfig(config).build(),
+                ArticleSimple.builder().simpleSKU(randomUUID().toString()).ean(randomUUID().toString()).size(randomUUID().toString()).articleConfig(config).build(),
+                ArticleSimple.builder().simpleSKU(randomUUID().toString()).ean(randomUUID().toString()).size(randomUUID().toString()).articleConfig(config).build(),
+                ArticleSimple.builder().simpleSKU(randomUUID().toString()).ean(randomUUID().toString()).size(randomUUID().toString()).articleConfig(config).build()
+        );
     }
 
     public static ArticleConfig createArticleConfig(String configSku) {
